@@ -42,11 +42,11 @@ namespace lab1Paint
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            if (!System.Text.RegularExpressions.Regex.IsMatch(this.boxWidth.Text, "[^0-9]")) || 
-                    !System.Text.RegularExpressions.Regex.IsMatch(this.boxHight.Text, "[^0-9]")) )
-            { 
-                MessageBox.Show("Введите целое число!")
-                this.DialogResult = !DialogResult.No;
+            if (!System.Text.RegularExpressions.Regex.IsMatch(this.boxWidth.Text, "[^0-9]") || 
+                !System.Text.RegularExpressions.Regex.IsMatch(this.boxHight.Text, "[^0-9]")) 
+            {
+                MessageBox.Show("Введите целое число!");
+                this.DialogResult = DialogResult.No;
             }
             else
             {

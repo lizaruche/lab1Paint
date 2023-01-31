@@ -30,6 +30,7 @@ namespace lab1Paint
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.новыйToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,14 +50,19 @@ namespace lab1Paint
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.dropDownColor = new System.Windows.Forms.ToolStripDropDownButton();
             this.красныйToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.зеленыйToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.синийToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.другойToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.labelBrush = new System.Windows.Forms.ToolStripLabel();
-            this.boxBrush = new System.Windows.Forms.ToolStripTextBox();
+            this.dropDownTools = new System.Windows.Forms.ToolStripDropDownButton();
+            this.пероToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.линияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.эллипсToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ластикToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.звездаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnParams = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -93,42 +99,45 @@ namespace lab1Paint
             // новыйToolStripMenuItem
             // 
             this.новыйToolStripMenuItem.Name = "новыйToolStripMenuItem";
-            this.новыйToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.новыйToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.новыйToolStripMenuItem.Text = "Новый";
+            this.новыйToolStripMenuItem.Click += new System.EventHandler(this.новыйToolStripMenuItem_Click);
             // 
             // открытьToolStripMenuItem
             // 
             this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
-            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.открытьToolStripMenuItem.Text = "Открыть...";
             this.открытьToolStripMenuItem.Click += new System.EventHandler(this.открытьToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(160, 6);
             // 
             // сохранитьToolStripMenuItem
             // 
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
+            this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
             // 
             // сохранитьКакToolStripMenuItem
             // 
             this.сохранитьКакToolStripMenuItem.Name = "сохранитьКакToolStripMenuItem";
-            this.сохранитьКакToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.сохранитьКакToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.сохранитьКакToolStripMenuItem.Text = "Сохранить как...";
+            this.сохранитьКакToolStripMenuItem.Click += new System.EventHandler(this.сохранитьКакToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(160, 6);
             // 
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
@@ -201,30 +210,29 @@ namespace lab1Paint
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripDropDownButton1,
+            this.dropDownColor,
             this.toolStripSeparator3,
-            this.labelBrush,
-            this.boxBrush});
+            this.dropDownTools,
+            this.btnParams});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(800, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripDropDownButton1
+            // dropDownColor
             // 
-            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dropDownColor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.dropDownColor.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.красныйToolStripMenuItem,
             this.зеленыйToolStripMenuItem,
             this.синийToolStripMenuItem,
             this.другойToolStripMenuItem});
-            this.toolStripDropDownButton1.Image = global::lab1Paint.Properties.Resources.icons8_цветовой_режим_48;
-            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(29, 22);
-            this.toolStripDropDownButton1.Text = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Click += new System.EventHandler(this.toolStripDropDownButton1_Click);
+            this.dropDownColor.Image = global::lab1Paint.Properties.Resources.icons8_цветовой_режим_48;
+            this.dropDownColor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.dropDownColor.Name = "dropDownColor";
+            this.dropDownColor.Size = new System.Drawing.Size(29, 22);
+            this.dropDownColor.Text = "Цвет";
             // 
             // красныйToolStripMenuItem
             // 
@@ -264,17 +272,65 @@ namespace lab1Paint
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
-            // labelBrush
+            // dropDownTools
             // 
-            this.labelBrush.Name = "labelBrush";
-            this.labelBrush.Size = new System.Drawing.Size(41, 22);
-            this.labelBrush.Text = "Кисть:";
+            this.dropDownTools.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.dropDownTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.пероToolStripMenuItem,
+            this.линияToolStripMenuItem,
+            this.эллипсToolStripMenuItem,
+            this.ластикToolStripMenuItem,
+            this.звездаToolStripMenuItem});
+            this.dropDownTools.Image = ((System.Drawing.Image)(resources.GetObject("dropDownTools.Image")));
+            this.dropDownTools.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.dropDownTools.Name = "dropDownTools";
+            this.dropDownTools.Size = new System.Drawing.Size(96, 22);
+            this.dropDownTools.Text = "Интсрументы";
             // 
-            // boxBrush
+            // пероToolStripMenuItem
             // 
-            this.boxBrush.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.boxBrush.Name = "boxBrush";
-            this.boxBrush.Size = new System.Drawing.Size(100, 25);
+            this.пероToolStripMenuItem.Name = "пероToolStripMenuItem";
+            this.пероToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.пероToolStripMenuItem.Text = "Перо";
+            this.пероToolStripMenuItem.Click += new System.EventHandler(this.пероToolStripMenuItem_Click);
+            // 
+            // линияToolStripMenuItem
+            // 
+            this.линияToolStripMenuItem.Name = "линияToolStripMenuItem";
+            this.линияToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.линияToolStripMenuItem.Text = "Линия";
+            this.линияToolStripMenuItem.Click += new System.EventHandler(this.линияToolStripMenuItem_Click);
+            // 
+            // эллипсToolStripMenuItem
+            // 
+            this.эллипсToolStripMenuItem.Name = "эллипсToolStripMenuItem";
+            this.эллипсToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.эллипсToolStripMenuItem.Text = "Эллипс";
+            this.эллипсToolStripMenuItem.Click += new System.EventHandler(this.эллипсToolStripMenuItem_Click);
+            // 
+            // ластикToolStripMenuItem
+            // 
+            this.ластикToolStripMenuItem.Name = "ластикToolStripMenuItem";
+            this.ластикToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.ластикToolStripMenuItem.Text = "Ластик";
+            this.ластикToolStripMenuItem.Click += new System.EventHandler(this.ластикToolStripMenuItem_Click);
+            // 
+            // звездаToolStripMenuItem
+            // 
+            this.звездаToolStripMenuItem.Name = "звездаToolStripMenuItem";
+            this.звездаToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.звездаToolStripMenuItem.Text = "Звезда";
+            this.звездаToolStripMenuItem.Click += new System.EventHandler(this.звездаToolStripMenuItem_Click);
+            // 
+            // btnParams
+            // 
+            this.btnParams.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnParams.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnParams.Name = "btnParams";
+            this.btnParams.Size = new System.Drawing.Size(84, 22);
+            this.btnParams.Text = "Параметры...";
+            this.btnParams.ToolTipText = "Параметры инструмента";
+            this.btnParams.Click += new System.EventHandler(this.btnParams_Click);
             // 
             // MainForm
             // 
@@ -317,14 +373,19 @@ namespace lab1Paint
         private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+        private System.Windows.Forms.ToolStripDropDownButton dropDownColor;
         private System.Windows.Forms.ToolStripMenuItem красныйToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem зеленыйToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem синийToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem другойToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripLabel labelBrush;
-        private System.Windows.Forms.ToolStripTextBox boxBrush;
+        private System.Windows.Forms.ToolStripDropDownButton dropDownTools;
+        private System.Windows.Forms.ToolStripMenuItem пероToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem линияToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem эллипсToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ластикToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem звездаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton btnParams;
     }
 }
 
