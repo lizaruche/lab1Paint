@@ -19,11 +19,11 @@ namespace lab1Paint
         public string path;
         private static int counter = 0;
 
-        public DocumentForm(string path)
+        public DocumentForm(string path="", int width=300, int higth=300)
         {
             InitializeComponent();
             this.path = path;
-            if (this.path == "") this.bitmap = new Bitmap(300, 300);
+            if (this.path == "") this.bitmap = new Bitmap(width, higth);
             else this.bitmap = new Bitmap(Image.FromFile(path));
             this.Size = this.bitmap.Size;
             if (this.path == "")
@@ -38,11 +38,22 @@ namespace lab1Paint
             this.picture.Image = this.bitmap;
         }
         private void DocumentForm_Closing(object sender, FormClosingEventArgs e)
-        { 
-            
+        {
+            if (MessageBox.Show($"Сохранить файл '{this.Text}'?", "Сохранение измененного файла", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Save();
+            }
         }
         public void Save()
-        { 
+        {
+            if (this.path == "")
+            {
+                SaveFileDialog dlg = new SaveFileDialog();
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    this.path = dlg.FileName;
+                }
+            }
             this.bitmap.Save(this.path);
             this.Text = this.path;
             counter--;

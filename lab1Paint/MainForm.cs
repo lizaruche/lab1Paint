@@ -98,9 +98,13 @@ namespace lab1Paint
 
         private void новыйToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DocumentForm newPaint = new DocumentForm("");
-            newPaint.MdiParent = this;
-            newPaint.Show();
+            CanvasSizeForm dlg = new CanvasSizeForm();
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                DocumentForm newPaint = new DocumentForm("", dlg.userHeight, dlg.userWidth);
+                newPaint.MdiParent = this;
+                newPaint.Show();
+            }
         }
 
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -108,16 +112,7 @@ namespace lab1Paint
             var d = ActiveMdiChild as DocumentForm;
             if (d != null)
             {
-                if (d.path != "") d.Save();
-                else
-                {
-                    SaveFileDialog dlg = new SaveFileDialog();
-                    if (dlg.ShowDialog() == DialogResult.OK)
-                    {
-                        d.path = dlg.FileName;
-                        d.Save();
-                    }
-                }
+                d.Save();
             }
         }
 

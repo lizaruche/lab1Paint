@@ -58,7 +58,6 @@ namespace lab1Paint
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "Отмена";
             this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.button2_Click);
             // 
             // labelWidth
             // 
@@ -68,7 +67,6 @@ namespace lab1Paint
             this.labelWidth.Size = new System.Drawing.Size(49, 13);
             this.labelWidth.TabIndex = 2;
             this.labelWidth.Text = "Ширина:";
-            this.labelWidth.Click += new System.EventHandler(this.label1_Click);
             // 
             // labelHight
             // 
@@ -78,7 +76,6 @@ namespace lab1Paint
             this.labelHight.Size = new System.Drawing.Size(48, 13);
             this.labelHight.TabIndex = 3;
             this.labelHight.Text = "Высота:";
-            this.labelHight.Click += new System.EventHandler(this.label2_Click);
             // 
             // boxWidth
             // 
@@ -112,8 +109,7 @@ namespace lab1Paint
             this.MinimizeBox = false;
             this.Name = "CanvasSizeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "CanvasSizeForm";
-            this.Load += new System.EventHandler(this.CanvasSizeForm_Load);
+            this.Text = "Размеры изображения";
             this.ResumeLayout(false);
             this.PerformLayout();
 

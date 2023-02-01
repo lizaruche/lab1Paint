@@ -57,7 +57,7 @@
             this.DoubleBuffered = true;
             this.Name = "DocumentForm";
             this.Text = "DocumentForm";
-            //this.FormClosing += System.Windows.Forms.FormClosingEventHandler(this.DocumentForm_Closing);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DocumentForm_Closing);
             ((System.ComponentModel.ISupportInitialize)(this.picture)).EndInit();
             this.ResumeLayout(false);
 
