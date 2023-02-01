@@ -45,7 +45,7 @@ namespace lab1Paint
             this.окноToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.каскадомToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.слеваНаправоToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.справаНалевоToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сверхуВнизToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.упорядочитьЗначкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -162,35 +162,40 @@ namespace lab1Paint
             this.окноToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.каскадомToolStripMenuItem,
             this.слеваНаправоToolStripMenuItem,
-            this.справаНалевоToolStripMenuItem,
+            this.сверхуВнизToolStripMenuItem,
             this.упорядочитьЗначкиToolStripMenuItem});
             this.окноToolStripMenuItem.Name = "окноToolStripMenuItem";
             this.окноToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.окноToolStripMenuItem.Text = "Окно";
+            this.окноToolStripMenuItem.Click += new System.EventHandler(this.окноToolStripMenuItem_Click);
             // 
             // каскадомToolStripMenuItem
             // 
             this.каскадомToolStripMenuItem.Name = "каскадомToolStripMenuItem";
             this.каскадомToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.каскадомToolStripMenuItem.Text = "Каскадом";
+            this.каскадомToolStripMenuItem.Click += new System.EventHandler(this.каскадомToolStripMenuItem_Click);
             // 
             // слеваНаправоToolStripMenuItem
             // 
             this.слеваНаправоToolStripMenuItem.Name = "слеваНаправоToolStripMenuItem";
             this.слеваНаправоToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.слеваНаправоToolStripMenuItem.Text = "Слева направо";
+            this.слеваНаправоToolStripMenuItem.Click += new System.EventHandler(this.слеваНаправоToolStripMenuItem_Click);
             // 
-            // справаНалевоToolStripMenuItem
+            // сверхуВнизToolStripMenuItem
             // 
-            this.справаНалевоToolStripMenuItem.Name = "справаНалевоToolStripMenuItem";
-            this.справаНалевоToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.справаНалевоToolStripMenuItem.Text = "Сверху вниз";
+            this.сверхуВнизToolStripMenuItem.Name = "сверхуВнизToolStripMenuItem";
+            this.сверхуВнизToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.сверхуВнизToolStripMenuItem.Text = "Сверху вниз";
+            this.сверхуВнизToolStripMenuItem.Click += new System.EventHandler(this.сверхуВнизToolStripMenuItem_Click);
             // 
             // упорядочитьЗначкиToolStripMenuItem
             // 
             this.упорядочитьЗначкиToolStripMenuItem.Name = "упорядочитьЗначкиToolStripMenuItem";
             this.упорядочитьЗначкиToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.упорядочитьЗначкиToolStripMenuItem.Text = "Упорядочить значки";
+            this.упорядочитьЗначкиToolStripMenuItem.Click += new System.EventHandler(this.упорядочитьЗначкиToolStripMenuItem_Click);
             // 
             // справкаToolStripMenuItem
             // 
@@ -368,7 +373,7 @@ namespace lab1Paint
         private System.Windows.Forms.ToolStripMenuItem окноToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem каскадомToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem слеваНаправоToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem справаНалевоToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem сверхуВнизToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem упорядочитьЗначкиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;

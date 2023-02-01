@@ -44,19 +44,55 @@ namespace lab1Paint
                 this.Save();
             }
         }
-        public void Save()
+        public void Save(bool saveAsFlag = false)
         {
+            string tmpPath = this.path;
+            if (saveAsFlag)
+            {
+                this.path = "";
+            }
             if (this.path == "")
             {
                 SaveFileDialog dlg = new SaveFileDialog();
+                dlg.Filter = "Файлы JPEG (*.jpeg, *.jpg)|*.jpeg;*.jpg| Файлы PNG (*.png)|*.png| Windows Bitmap (*.bmp)|*.bmp|Все файлы ()*.*|*.*";
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
                     this.path = dlg.FileName;
+                }
+                else
+                {
+                    this.path = tmpPath;
                 }
             }
             this.bitmap.Save(this.path);
             this.Text = this.path;
             counter--;
+        }
+        public void ResizeImage(Size destSize)
+        {
+            if (destSize.Width < bitmap.Width)
+                bitmap = bitmap.Clone(new Rectangle(Point.Empty, new Size(destSize.Width, bitmap.Height)), bitmap.PixelFormat);
+            else if (destSize.Width > bitmap.Width)
+            {
+                bmpTemp = (Bitmap)bitmap.Clone();
+                bitmap = new Bitmap(destSize.Width, bitmap.Height);
+                var g = Graphics.FromImage(bitmap);
+                g.FillRectangle(new SolidBrush(Color.White), new Rectangle(Point.Empty, bitmap.Size));
+                g.DrawImage(bmpTemp, Point.Empty);
+            }
+            if (destSize.Height < bitmap.Height)
+                bitmap = bitmap.Clone(new Rectangle(Point.Empty, new Size(bitmap.Width, destSize.Height)), bitmap.PixelFormat);
+            else if (destSize.Height > bitmap.Height)
+            {
+                bmpTemp = (Bitmap)bitmap.Clone();
+                bitmap = new Bitmap(bitmap.Width, destSize.Height);
+                var g = Graphics.FromImage(bitmap);
+                g.FillRectangle(new SolidBrush(Color.White), new Rectangle(Point.Empty, bitmap.Size));
+                g.DrawImage(bmpTemp, Point.Empty);
+            }
+            picture.Image = bitmap;
+            picture.Invalidate();
+            this.Size = destSize;
         }
         private void DocumentForm_MouseDown(object sender, MouseEventArgs e)
         {

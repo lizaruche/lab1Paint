@@ -15,9 +15,13 @@ namespace lab1Paint
     {
         public int userWidth;
         public int userHeight;
-        public CanvasSizeForm()
+        public CanvasSizeForm(int curWidth=300, int curHeight=300)
         {
             InitializeComponent();
+            this.userHeight = curHeight;
+            this.userWidth = curWidth;
+            this.boxHight.Text = this.userHeight.ToString();
+            this.boxWidth.Text = this.userWidth.ToString();
         }
         private void btnOk_Click(object sender, EventArgs e)
         {

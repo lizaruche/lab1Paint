@@ -60,9 +60,12 @@ namespace lab1Paint
 
         private void размерХолстаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CanvasSizeForm sizeForm = new CanvasSizeForm();
-            sizeForm.ShowDialog();
-
+            CanvasSizeForm dlg = new CanvasSizeForm();
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                var d = ActiveMdiChild as DocumentForm;
+                d.ResizeImage(new Size(dlg.userWidth, dlg.userHeight));
+            }
         }
         private void рисунокToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -121,12 +124,7 @@ namespace lab1Paint
             var d = ActiveMdiChild as DocumentForm;
             if (d != null)
             {
-                SaveFileDialog dlg = new SaveFileDialog();
-                if (dlg.ShowDialog() == DialogResult.OK)
-                {
-                    d.path = dlg.FileName;
-                    d.Save();
-                }
+                d.Save(true);
             }
         }
 
@@ -189,6 +187,37 @@ namespace lab1Paint
                 CurrentInnerRad = dlg.GetInnerRad();
                 CurrentOuterRad = dlg.GetOuterRad();
                 dlg.Close();
+            }
+        }
+
+        private void каскадомToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.LayoutMdi(MdiLayout.Cascade);
+        }
+
+        private void слеваНаправоToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.LayoutMdi(MdiLayout.TileVertical);
+        }
+
+        private void сверхуВнизToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.LayoutMdi(MdiLayout.TileHorizontal);
+        }
+
+        private void упорядочитьЗначкиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.LayoutMdi(MdiLayout.ArrangeIcons);
+        }
+
+        private void окноToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.MdiChildren.Length == 0)
+            {
+                foreach (ToolStripMenuItem item in this.окноToolStripMenuItem.DropDownItems)
+                {
+                    item.Enabled = false;
+                }
             }
         }
     }
