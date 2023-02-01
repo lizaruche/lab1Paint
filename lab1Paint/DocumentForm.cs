@@ -43,6 +43,7 @@ namespace lab1Paint
             {
                 this.Save();
             }
+            counter--;
         }
         public void Save(bool saveAsFlag = false)
         {
@@ -143,6 +144,35 @@ namespace lab1Paint
                 picture.Invalidate();
             }
         }
+        private PointF[] DrawStar(Point currPos)
+        {
+            int n = MainForm.CurrentRayNum;
+            float R = MainForm.CurrentOuterRad;
+            float r = MainForm.CurrentInnerRad;
+
+            PointF[] points = new PointF[2 * n + 1];
+            float rotateVal = (float)Math.PI / n;
+
+            float angle;
+            if (n % 4 == 0)
+                angle = 0;
+            else if (n % 4 == 1)
+                angle = (float)1.5 * rotateVal;
+            else if (n % 4 == 2)
+                angle = rotateVal;
+            else
+                angle = (float)(1.5 * rotateVal - Math.PI);
+
+            for (int i = 0; i < points.Length; i++)
+            {
+                double currRad = i % 2 == 0 ? R : r;
+
+                points[i] = new PointF((float)(currPos.X + currRad * Math.Cos(angle)), (float)(currPos.Y + currRad * Math.Cos(angle)));
+                angle += rotateVal;
+            }
+            return points;
+
+        }
         private void picture_MouseUp(object sender, MouseEventArgs e)
         {
             switch (MainForm.Tool)
@@ -153,10 +183,17 @@ namespace lab1Paint
                     break;
             }
         }
-        protected override void OnFormClosing(FormClosingEventArgs e)
+
+        private void picture_Click(object sender, EventArgs e)
         {
-            base.OnFormClosing(e);
-            counter--;
+            if (MainForm.Tool == Tools.Star)
+                using (Graphics g = Graphics.FromImage(this.bitmap))
+                {
+                    using (Pen pen = new Pen(MainForm.CurrentColor))
+                    {
+                        g.DrawPolygon(pen, DrawStar(Cursor.Position));
+                    }
+                }
         }
 
         protected override void OnPaint(PaintEventArgs e)

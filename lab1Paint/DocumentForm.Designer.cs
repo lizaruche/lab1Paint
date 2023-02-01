@@ -34,7 +34,7 @@
             // 
             // picture
             // 
-            this.picture.BackColor = System.Drawing.SystemColors.Control;
+            this.picture.BackColor = System.Drawing.Color.White;
             this.picture.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picture.Location = new System.Drawing.Point(0, 0);
             this.picture.Margin = new System.Windows.Forms.Padding(2);
@@ -42,6 +42,7 @@
             this.picture.Size = new System.Drawing.Size(800, 450);
             this.picture.TabIndex = 0;
             this.picture.TabStop = false;
+            this.picture.Click += new System.EventHandler(this.picture_Click);
             this.picture.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DocumentForm_MouseDown);
             this.picture.MouseMove += new System.Windows.Forms.MouseEventHandler(this.DocumentForm_MouseMove);
             this.picture.MouseUp += new System.Windows.Forms.MouseEventHandler(this.picture_MouseUp);
