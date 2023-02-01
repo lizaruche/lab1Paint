@@ -165,5 +165,11 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoom_minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoom_plus.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

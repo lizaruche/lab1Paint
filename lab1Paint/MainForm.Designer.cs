@@ -50,19 +50,21 @@ namespace lab1Paint
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnParams = new System.Windows.Forms.ToolStripButton();
             this.dropDownColor = new System.Windows.Forms.ToolStripDropDownButton();
             this.красныйToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.зеленыйToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.синийToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.другойToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.dropDownTools = new System.Windows.Forms.ToolStripDropDownButton();
             this.пероToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.линияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.эллипсToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ластикToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.звездаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnParams = new System.Windows.Forms.ToolStripButton();
+            this.btnZoomMinus = new System.Windows.Forms.ToolStripButton();
+            this.btnZoomPlus = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -218,12 +220,29 @@ namespace lab1Paint
             this.dropDownColor,
             this.toolStripSeparator3,
             this.dropDownTools,
-            this.btnParams});
+            this.btnParams,
+            this.btnZoomMinus,
+            this.btnZoomPlus});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(800, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btnParams
+            // 
+            this.btnParams.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnParams.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnParams.Name = "btnParams";
+            this.btnParams.Size = new System.Drawing.Size(84, 22);
+            this.btnParams.Text = "Параметры...";
+            this.btnParams.ToolTipText = "Параметры инструмента";
+            this.btnParams.Click += new System.EventHandler(this.btnParams_Click);
             // 
             // dropDownColor
             // 
@@ -271,11 +290,6 @@ namespace lab1Paint
             this.другойToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.другойToolStripMenuItem.Text = "Другой...";
             this.другойToolStripMenuItem.Click += new System.EventHandler(this.другойToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
             // dropDownTools
             // 
@@ -327,15 +341,25 @@ namespace lab1Paint
             this.звездаToolStripMenuItem.Text = "Звезда";
             this.звездаToolStripMenuItem.Click += new System.EventHandler(this.звездаToolStripMenuItem_Click);
             // 
-            // btnParams
+            // btnZoomMinus
             // 
-            this.btnParams.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnParams.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnParams.Name = "btnParams";
-            this.btnParams.Size = new System.Drawing.Size(84, 22);
-            this.btnParams.Text = "Параметры...";
-            this.btnParams.ToolTipText = "Параметры инструмента";
-            this.btnParams.Click += new System.EventHandler(this.btnParams_Click);
+            this.btnZoomMinus.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnZoomMinus.Image = global::lab1Paint.Properties.Resources.zoom_minus;
+            this.btnZoomMinus.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnZoomMinus.Name = "btnZoomMinus";
+            this.btnZoomMinus.Size = new System.Drawing.Size(23, 22);
+            this.btnZoomMinus.Text = "Масштаб--";
+            this.btnZoomMinus.Click += new System.EventHandler(this.btnZoomMinus_Click);
+            // 
+            // btnZoomPlus
+            // 
+            this.btnZoomPlus.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnZoomPlus.Image = global::lab1Paint.Properties.Resources.zoom_plus;
+            this.btnZoomPlus.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnZoomPlus.Name = "btnZoomPlus";
+            this.btnZoomPlus.Size = new System.Drawing.Size(23, 22);
+            this.btnZoomPlus.Text = "Масштаб++";
+            this.btnZoomPlus.Click += new System.EventHandler(this.btnZoomPlus_Click);
             // 
             // MainForm
             // 
@@ -391,6 +415,8 @@ namespace lab1Paint
         private System.Windows.Forms.ToolStripMenuItem ластикToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem звездаToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton btnParams;
+        private System.Windows.Forms.ToolStripButton btnZoomMinus;
+        private System.Windows.Forms.ToolStripButton btnZoomPlus;
     }
 }
 

@@ -20,6 +20,7 @@ namespace lab1Paint
         public static int CurrentInnerRad { get; set; }
         public static int CurrentOuterRad { get; set; }
         public static int CurrentRayNum { get; set; }
+        public static int CurrentZoom { get; set; }
 
         public MainForm()
         {
@@ -64,7 +65,7 @@ namespace lab1Paint
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 var d = ActiveMdiChild as DocumentForm;
-                d.ResizeImage(new Size(dlg.userWidth, dlg.userHeight));
+                d.CropImage(new Size(dlg.userWidth, dlg.userHeight));
             }
         }
         private void рисунокToolStripMenuItem_Click(object sender, EventArgs e)
@@ -186,6 +187,7 @@ namespace lab1Paint
                 CurrentRayNum = dlg.GetRayNum();
                 CurrentInnerRad = dlg.GetInnerRad();
                 CurrentOuterRad = dlg.GetOuterRad();
+                CurrentZoom = dlg.GetZoom();
                 dlg.Close();
             }
         }
@@ -218,6 +220,24 @@ namespace lab1Paint
                 {
                     item.Enabled = false;
                 }
+            }
+        }
+
+        private void btnZoomMinus_Click(object sender, EventArgs e)
+        {
+            if (this.ActiveMdiChild != null)
+            {
+                var d = this.ActiveMdiChild as DocumentForm;
+                d.ResizeImage(-CurrentZoom);
+            }
+        }
+
+        private void btnZoomPlus_Click(object sender, EventArgs e)
+        {
+            if (this.ActiveMdiChild != null)
+            {
+                var d = this.ActiveMdiChild as DocumentForm;
+                d.ResizeImage(CurrentZoom);
             }
         }
     }

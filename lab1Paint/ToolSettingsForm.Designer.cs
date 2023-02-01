@@ -40,6 +40,8 @@
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelZoom = new System.Windows.Forms.Label();
+            this.textZoom = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -49,14 +51,14 @@
             this.labelWidth.AutoSize = true;
             this.labelWidth.Location = new System.Drawing.Point(3, 0);
             this.labelWidth.Name = "labelWidth";
-            this.labelWidth.Size = new System.Drawing.Size(159, 26);
+            this.labelWidth.Size = new System.Drawing.Size(162, 26);
             this.labelWidth.TabIndex = 0;
             this.labelWidth.Text = "Ширина линии (вещественное число):";
             // 
             // labelRayNum
             // 
             this.labelRayNum.AutoSize = true;
-            this.labelRayNum.Location = new System.Drawing.Point(3, 34);
+            this.labelRayNum.Location = new System.Drawing.Point(3, 35);
             this.labelRayNum.Name = "labelRayNum";
             this.labelRayNum.Size = new System.Drawing.Size(141, 13);
             this.labelRayNum.TabIndex = 1;
@@ -65,7 +67,7 @@
             // labelInnerRad
             // 
             this.labelInnerRad.AutoSize = true;
-            this.labelInnerRad.Location = new System.Drawing.Point(3, 67);
+            this.labelInnerRad.Location = new System.Drawing.Point(3, 69);
             this.labelInnerRad.Name = "labelInnerRad";
             this.labelInnerRad.Size = new System.Drawing.Size(148, 13);
             this.labelInnerRad.TabIndex = 2;
@@ -74,7 +76,7 @@
             // labelOuterRad
             // 
             this.labelOuterRad.AutoSize = true;
-            this.labelOuterRad.Location = new System.Drawing.Point(3, 97);
+            this.labelOuterRad.Location = new System.Drawing.Point(3, 102);
             this.labelOuterRad.Name = "labelOuterRad";
             this.labelOuterRad.Size = new System.Drawing.Size(134, 13);
             this.labelOuterRad.TabIndex = 3;
@@ -93,41 +95,44 @@
             this.tableLayoutPanel1.Controls.Add(this.labelInnerRad, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.textWidth, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.textOuterRad, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.labelZoom, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.textZoom, 1, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.74627F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.25373F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(331, 126);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(344, 159);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // textInnerRad
             // 
-            this.textInnerRad.Location = new System.Drawing.Point(168, 70);
+            this.textInnerRad.Location = new System.Drawing.Point(175, 72);
             this.textInnerRad.Name = "textInnerRad";
             this.textInnerRad.Size = new System.Drawing.Size(100, 20);
             this.textInnerRad.TabIndex = 6;
             // 
             // textRayNum
             // 
-            this.textRayNum.Location = new System.Drawing.Point(168, 37);
+            this.textRayNum.Location = new System.Drawing.Point(175, 38);
             this.textRayNum.Name = "textRayNum";
             this.textRayNum.Size = new System.Drawing.Size(100, 20);
             this.textRayNum.TabIndex = 5;
             // 
             // textWidth
             // 
-            this.textWidth.Location = new System.Drawing.Point(168, 3);
+            this.textWidth.Location = new System.Drawing.Point(175, 3);
             this.textWidth.Name = "textWidth";
             this.textWidth.Size = new System.Drawing.Size(100, 20);
             this.textWidth.TabIndex = 4;
             // 
             // textOuterRad
             // 
-            this.textOuterRad.Location = new System.Drawing.Point(168, 100);
+            this.textOuterRad.Location = new System.Drawing.Point(175, 105);
             this.textOuterRad.Name = "textOuterRad";
             this.textOuterRad.Size = new System.Drawing.Size(100, 20);
             this.textOuterRad.TabIndex = 7;
@@ -145,7 +150,7 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(168, 3);
+            this.btnCancel.Location = new System.Drawing.Point(175, 3);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(154, 37);
             this.btnCancel.TabIndex = 9;
@@ -160,12 +165,28 @@
             this.tableLayoutPanel2.Controls.Add(this.btnOk, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnCancel, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 126);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 159);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(331, 49);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(344, 49);
             this.tableLayoutPanel2.TabIndex = 10;
+            // 
+            // labelZoom
+            // 
+            this.labelZoom.AutoSize = true;
+            this.labelZoom.Location = new System.Drawing.Point(3, 134);
+            this.labelZoom.Name = "labelZoom";
+            this.labelZoom.Size = new System.Drawing.Size(56, 13);
+            this.labelZoom.TabIndex = 8;
+            this.labelZoom.Text = "Масштаб:";
+            // 
+            // textZoom
+            // 
+            this.textZoom.Location = new System.Drawing.Point(175, 137);
+            this.textZoom.Name = "textZoom";
+            this.textZoom.Size = new System.Drawing.Size(100, 20);
+            this.textZoom.TabIndex = 9;
             // 
             // ToolSettingsForm
             // 
@@ -173,7 +194,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(331, 175);
+            this.ClientSize = new System.Drawing.Size(344, 208);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -203,5 +224,7 @@
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Button btnCancel;
         internal System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label labelZoom;
+        private System.Windows.Forms.TextBox textZoom;
     }
 }

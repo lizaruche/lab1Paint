@@ -68,7 +68,7 @@ namespace lab1Paint
             this.Text = this.path;
             counter--;
         }
-        public void ResizeImage(Size destSize)
+        public void CropImage(Size destSize)
         {
             if (destSize.Width < bitmap.Width)
                 bitmap = bitmap.Clone(new Rectangle(Point.Empty, new Size(destSize.Width, bitmap.Height)), bitmap.PixelFormat);
@@ -92,7 +92,19 @@ namespace lab1Paint
             }
             picture.Image = bitmap;
             picture.Invalidate();
-            this.Size = destSize;
+            this.Size = bitmap.Size;
+        }
+        public void ResizeImage(int div)
+        {
+            if (bitmap.Width + div <= 0 || bitmap.Height + div <= 0)
+                MessageBox.Show("Достигнут минимальный размер!");
+            else
+            {
+                bitmap = new Bitmap(bitmap, bitmap.Width + div, bitmap.Height + div);
+                picture.Image = bitmap;
+                picture.Invalidate();
+                this.Size = bitmap.Size;
+            }
         }
         private void DocumentForm_MouseDown(object sender, MouseEventArgs e)
         {
