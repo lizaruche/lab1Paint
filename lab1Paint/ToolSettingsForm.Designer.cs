@@ -37,11 +37,11 @@
             this.textRayNum = new System.Windows.Forms.TextBox();
             this.textWidth = new System.Windows.Forms.TextBox();
             this.textOuterRad = new System.Windows.Forms.TextBox();
+            this.labelZoom = new System.Windows.Forms.Label();
+            this.textZoom = new System.Windows.Forms.TextBox();
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.labelZoom = new System.Windows.Forms.Label();
-            this.textZoom = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -137,6 +137,22 @@
             this.textOuterRad.Size = new System.Drawing.Size(100, 20);
             this.textOuterRad.TabIndex = 7;
             // 
+            // labelZoom
+            // 
+            this.labelZoom.AutoSize = true;
+            this.labelZoom.Location = new System.Drawing.Point(3, 134);
+            this.labelZoom.Name = "labelZoom";
+            this.labelZoom.Size = new System.Drawing.Size(56, 13);
+            this.labelZoom.TabIndex = 8;
+            this.labelZoom.Text = "Масштаб:";
+            // 
+            // textZoom
+            // 
+            this.textZoom.Location = new System.Drawing.Point(175, 137);
+            this.textZoom.Name = "textZoom";
+            this.textZoom.Size = new System.Drawing.Size(100, 20);
+            this.textZoom.TabIndex = 9;
+            // 
             // btnOk
             // 
             this.btnOk.Location = new System.Drawing.Point(3, 3);
@@ -171,22 +187,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(344, 49);
             this.tableLayoutPanel2.TabIndex = 10;
-            // 
-            // labelZoom
-            // 
-            this.labelZoom.AutoSize = true;
-            this.labelZoom.Location = new System.Drawing.Point(3, 134);
-            this.labelZoom.Name = "labelZoom";
-            this.labelZoom.Size = new System.Drawing.Size(56, 13);
-            this.labelZoom.TabIndex = 8;
-            this.labelZoom.Text = "Масштаб:";
-            // 
-            // textZoom
-            // 
-            this.textZoom.Location = new System.Drawing.Point(175, 137);
-            this.textZoom.Name = "textZoom";
-            this.textZoom.Size = new System.Drawing.Size(100, 20);
-            this.textZoom.TabIndex = 9;
             // 
             // ToolSettingsForm
             // 

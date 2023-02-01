@@ -139,6 +139,12 @@ namespace lab1Paint
                         g.DrawLine(pen, new PointF(this.x, this.y), new PointF(e.X, e.Y));
                         picture.Image = bmpTemp;
                         break;
+                    case Tools.Star:
+                        this.bmpTemp = (Bitmap)this.bitmap.Clone();
+                        g = Graphics.FromImage(bmpTemp);
+                        g.DrawPolygon(pen, DrawStar(e.Location));
+                        picture.Image = bmpTemp;
+                        break;
 
                 }
                 picture.Invalidate();
@@ -147,21 +153,21 @@ namespace lab1Paint
         private PointF[] DrawStar(Point currPos)
         {
             int n = MainForm.CurrentRayNum;
-            float R = MainForm.CurrentOuterRad;
-            float r = MainForm.CurrentInnerRad;
+            double R = MainForm.CurrentOuterRad;
+            double r = MainForm.CurrentInnerRad;
 
             PointF[] points = new PointF[2 * n + 1];
-            float rotateVal = (float)Math.PI / n;
+            double rotateVal = Math.PI / n;
 
-            float angle;
+            double angle;
             if (n % 4 == 0)
                 angle = 0;
             else if (n % 4 == 1)
-                angle = (float)1.5 * rotateVal;
+                angle = 1.5 * rotateVal;
             else if (n % 4 == 2)
                 angle = rotateVal;
             else
-                angle = (float)(1.5 * rotateVal - Math.PI);
+                angle = (1.5 * rotateVal - Math.PI);
 
             for (int i = 0; i < points.Length; i++)
             {
@@ -171,12 +177,12 @@ namespace lab1Paint
                 angle += rotateVal;
             }
             return points;
-
         }
         private void picture_MouseUp(object sender, MouseEventArgs e)
         {
             switch (MainForm.Tool)
             {
+                case Tools.Star:
                 case Tools.Line:
                 case Tools.Circle:
                     bitmap = bmpTemp;
@@ -192,14 +198,9 @@ namespace lab1Paint
                     using (Pen pen = new Pen(MainForm.CurrentColor))
                     {
                         g.DrawPolygon(pen, DrawStar(Cursor.Position));
+                        picture.Invalidate();
                     }
                 }
-        }
-
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            base.OnPaint(e);
-            e.Graphics.DrawImage(bitmap, 0, 0);
         }
     }
 }

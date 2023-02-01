@@ -30,6 +30,7 @@ namespace lab1Paint
             CurrentOuterRad = 3;
             CurrentInnerRad = 2;
             CurrentRayNum = 7;
+            CurrentZoom = 50;
         }
 
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
