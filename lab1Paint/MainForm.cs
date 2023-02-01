@@ -27,9 +27,9 @@ namespace lab1Paint
             InitializeComponent();
             CurrentColor = Color.Black;
             CurrentWidth = 3;
-            CurrentOuterRad = 3;
-            CurrentInnerRad = 2;
-            CurrentRayNum = 7;
+            CurrentOuterRad = 70;
+            CurrentInnerRad = 20;
+            CurrentRayNum = 5;
             CurrentZoom = 50;
         }
 

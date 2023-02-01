@@ -142,15 +142,17 @@ namespace lab1Paint
                     case Tools.Star:
                         this.bmpTemp = (Bitmap)this.bitmap.Clone();
                         g = Graphics.FromImage(bmpTemp);
-                        g.DrawPolygon(pen, DrawStar(e.Location));
+                        g.DrawEllipse(pen, new Rectangle(e.X - MainForm.CurrentOuterRad, 
+                            e.Y - MainForm.CurrentOuterRad,
+                            2 * MainForm.CurrentOuterRad,
+                            2 * MainForm.CurrentOuterRad));
                         picture.Image = bmpTemp;
                         break;
-
                 }
                 picture.Invalidate();
             }
         }
-        private PointF[] DrawStar(Point currPos)
+        private static PointF[] DrawStar(Pen pen, Graphics g, Point currPos)
         {
             int n = MainForm.CurrentRayNum;
             double R = MainForm.CurrentOuterRad;
@@ -173,8 +175,10 @@ namespace lab1Paint
             {
                 double currRad = i % 2 == 0 ? R : r;
 
-                points[i] = new PointF((float)(currPos.X + currRad * Math.Cos(angle)), (float)(currPos.Y + currRad * Math.Cos(angle)));
+                points[i] = new PointF((float)(currPos.X + currRad * Math.Cos(angle)), (float)(currPos.Y + currRad * Math.Sin(angle)));
                 angle += rotateVal;
+                if (i > 0)
+                    g.DrawLine(pen, points[i - 1], points[i]);
             }
             return points;
         }
@@ -182,7 +186,6 @@ namespace lab1Paint
         {
             switch (MainForm.Tool)
             {
-                case Tools.Star:
                 case Tools.Line:
                 case Tools.Circle:
                     bitmap = bmpTemp;
@@ -195,9 +198,11 @@ namespace lab1Paint
             if (MainForm.Tool == Tools.Star)
                 using (Graphics g = Graphics.FromImage(this.bitmap))
                 {
-                    using (Pen pen = new Pen(MainForm.CurrentColor))
+                    using (Pen pen = new Pen(MainForm.CurrentColor, MainForm.CurrentWidth))
                     {
-                        g.DrawPolygon(pen, DrawStar(Cursor.Position));
+                        var mouse = e as MouseEventArgs;
+                        DrawStar(pen, g, mouse.Location);
+                        picture.Image = this.bitmap;
                         picture.Invalidate();
                     }
                 }
