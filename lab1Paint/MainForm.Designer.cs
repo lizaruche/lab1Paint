@@ -50,19 +50,19 @@ namespace lab1Paint
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnParams = new System.Windows.Forms.ToolStripButton();
             this.dropDownColor = new System.Windows.Forms.ToolStripDropDownButton();
             this.красныйToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.зеленыйToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.синийToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.другойToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.dropDownTools = new System.Windows.Forms.ToolStripDropDownButton();
             this.пероToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.линияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.эллипсToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ластикToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.звездаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnParams = new System.Windows.Forms.ToolStripButton();
             this.btnZoomMinus = new System.Windows.Forms.ToolStripButton();
             this.btnZoomPlus = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
@@ -94,6 +94,8 @@ namespace lab1Paint
             this.toolStripSeparator2,
             this.выходToolStripMenuItem});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
+            this.файлToolStripMenuItem.ShortcutKeyDisplayString = "ALT+F";
+            this.файлToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F)));
             this.файлToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.файлToolStripMenuItem.Text = "Файл";
             this.файлToolStripMenuItem.Click += new System.EventHandler(this.файлToolStripMenuItem_Click);
@@ -101,45 +103,45 @@ namespace lab1Paint
             // новыйToolStripMenuItem
             // 
             this.новыйToolStripMenuItem.Name = "новыйToolStripMenuItem";
-            this.новыйToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.новыйToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.новыйToolStripMenuItem.Text = "Новый";
             this.новыйToolStripMenuItem.Click += new System.EventHandler(this.новыйToolStripMenuItem_Click);
             // 
             // открытьToolStripMenuItem
             // 
             this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
-            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.открытьToolStripMenuItem.Text = "Открыть...";
             this.открытьToolStripMenuItem.Click += new System.EventHandler(this.открытьToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(160, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // сохранитьToolStripMenuItem
             // 
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
             this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
             // 
             // сохранитьКакToolStripMenuItem
             // 
             this.сохранитьКакToolStripMenuItem.Name = "сохранитьКакToolStripMenuItem";
-            this.сохранитьКакToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.сохранитьКакToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.сохранитьКакToolStripMenuItem.Text = "Сохранить как...";
             this.сохранитьКакToolStripMenuItem.Click += new System.EventHandler(this.сохранитьКакToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(160, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
@@ -229,21 +231,6 @@ namespace lab1Paint
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
-            // 
-            // btnParams
-            // 
-            this.btnParams.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnParams.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnParams.Name = "btnParams";
-            this.btnParams.Size = new System.Drawing.Size(84, 22);
-            this.btnParams.Text = "Параметры...";
-            this.btnParams.ToolTipText = "Параметры инструмента";
-            this.btnParams.Click += new System.EventHandler(this.btnParams_Click);
-            // 
             // dropDownColor
             // 
             this.dropDownColor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -290,6 +277,11 @@ namespace lab1Paint
             this.другойToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.другойToolStripMenuItem.Text = "Другой...";
             this.другойToolStripMenuItem.Click += new System.EventHandler(this.другойToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
             // dropDownTools
             // 
@@ -340,6 +332,16 @@ namespace lab1Paint
             this.звездаToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.звездаToolStripMenuItem.Text = "Звезда";
             this.звездаToolStripMenuItem.Click += new System.EventHandler(this.звездаToolStripMenuItem_Click);
+            // 
+            // btnParams
+            // 
+            this.btnParams.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnParams.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnParams.Name = "btnParams";
+            this.btnParams.Size = new System.Drawing.Size(84, 22);
+            this.btnParams.Text = "Параметры...";
+            this.btnParams.ToolTipText = "Параметры инструмента";
+            this.btnParams.Click += new System.EventHandler(this.btnParams_Click);
             // 
             // btnZoomMinus
             // 
