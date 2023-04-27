@@ -8,6 +8,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 using System.Windows.Forms;
 using PluginInterface;
 using System.Xml.Linq;
@@ -251,7 +252,12 @@ namespace lab1Paint
         void FindPlugins()
         {
             // папка с плагинами
-            string folder = "C:\\Users\\arsen\\source\\repos\\lab1Paint\\ClassLibrary\\bin\\Debug";
+            string folder = ConfigurationSettings.AppSettings["PluginsFolder"];
+            if (folder == null)
+            {
+                folder = System.AppDomain.CurrentDomain.BaseDirectory;
+                MessageBox.Show("Плагины берутся из директории приложения");
+            }
 
             // dll-файлы в этой папке
             string[] files = Directory.GetFiles(folder, "*.dll");
@@ -285,11 +291,13 @@ namespace lab1Paint
                 var attr = (VersionAttribute) p.Value.GetType().GetCustomAttribute(typeof(VersionAttribute), false);
                 var item = фильтрыToolStripMenuItem.DropDownItems.Add(p.Value.Name + "; Автор: " + p.Value.Author + "; Версия: " + attr.Major + "." + attr.Minor);
                 item.Click += OnPluginClick;
+                if (item.Text.Split(';')[0] == "Перемешивание") item.Enabled= false;
             }
         }
         private void OnPluginClick(object sender, EventArgs args)
         {
-            IPlugin plugin = plugins[((ToolStripMenuItem)sender).Text];
+            string name = ((ToolStripMenuItem)sender).Text.Split(';')[0];
+            IPlugin plugin = plugins[name];
             if (this.ActiveMdiChild != null)
             {
                 var d = this.ActiveMdiChild as DocumentForm;

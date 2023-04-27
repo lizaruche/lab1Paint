@@ -41,22 +41,21 @@ namespace ClassLibrary
                 GeoCoordinate coordinate = new GeoCoordinate();
                 if (coordinate.IsUnknown != true)
                 {
-                    // add msg if picture size less than rectangle 
                     using (Graphics gr = Graphics.FromImage(bitmap))
                     {
                         string l = Math.Round(coordinate.Longitude, 2).ToString();
                         string a = Math.Round(coordinate.Altitude, 2).ToString();
-                        string data = "12.12.2012\n" + l + " " + a;
+                        string date = DateTime.Now.ToString("dd.MM.yyyy");
+                        string data = date + "\n" + l + " " + a;
                         gr.DrawString(data, new Font("Arial", fontSize, FontStyle.Regular), new SolidBrush(Color.Yellow), bitmap.Width - 80, bitmap.Height - 2 * fontSize - 8);
                     }
                 }
                 else
                 {
-                    // add msg if picture size less than rectangle 
                     using (Graphics gr = Graphics.FromImage(bitmap))
                     {
-                        int fontSize = 10;
-                        gr.DrawString("12.12.2012", new Font("Arial", fontSize, FontStyle.Regular), new SolidBrush(Color.Yellow), bitmap.Width - 80, bitmap.Height - fontSize - 6);
+                        string date = DateTime.Now.ToString("dd.MM.yyyy");
+                        gr.DrawString(date, new Font("Arial", fontSize, FontStyle.Regular), new SolidBrush(Color.Yellow), bitmap.Width - 80, bitmap.Height - fontSize - 8);
                     }
                 }
             }
