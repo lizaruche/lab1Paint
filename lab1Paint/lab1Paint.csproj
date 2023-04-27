@@ -171,5 +171,11 @@
   <ItemGroup>
     <None Include="Resources\zoom_plus.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PluginInterface\PluginInterface.csproj">
+      <Project>{2a7046ae-4a1a-40c3-b8bb-ac8802d957f8}</Project>
+      <Name>PluginInterface</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

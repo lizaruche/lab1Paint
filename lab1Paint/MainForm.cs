@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PluginInterface;
 using System.Xml.Linq;
 
 namespace lab1Paint
@@ -21,6 +24,7 @@ namespace lab1Paint
         public static int CurrentOuterRad { get; set; }
         public static int CurrentRayNum { get; set; }
         public static int CurrentZoom { get; set; }
+        Dictionary<string, IPlugin> plugins = new Dictionary<string, IPlugin>();
 
         public MainForm()
         {
@@ -31,6 +35,8 @@ namespace lab1Paint
             CurrentInnerRad = 20;
             CurrentRayNum = 5;
             CurrentZoom = 50;
+            FindPlugins();
+            CreatePluginsMenu();
         }
 
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -241,5 +247,56 @@ namespace lab1Paint
                 d.ResizeImage(CurrentZoom);
             }
         }
+
+        void FindPlugins()
+        {
+            // папка с плагинами
+            string folder = "C:\\Users\\arsen\\source\\repos\\lab1Paint\\ClassLibrary\\bin\\Debug";
+
+            // dll-файлы в этой папке
+            string[] files = Directory.GetFiles(folder, "*.dll");
+
+            
+            foreach (string file in files)
+                try
+                {
+                    Assembly assembly = Assembly.LoadFile(file);
+
+                    foreach (Type type in assembly.GetTypes())
+                    {
+                        Type iface = type.GetInterface("PluginInterface.IPlugin");
+
+                        if (iface != null)
+                        {
+                            IPlugin plugin = (IPlugin)Activator.CreateInstance(type);
+                            plugins.Add(plugin.Name, plugin);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ошибка загрузки плагина\n" + ex.Message);
+                }
+        }
+        private void CreatePluginsMenu()
+        {
+            foreach (var p in plugins)
+            {
+                var attr = (VersionAttribute) p.Value.GetType().GetCustomAttribute(typeof(VersionAttribute), false);
+                var item = фильтрыToolStripMenuItem.DropDownItems.Add(p.Value.Name + "; Автор: " + p.Value.Author + "; Версия: " + attr.Major + "." + attr.Minor);
+                item.Click += OnPluginClick;
+            }
+        }
+        private void OnPluginClick(object sender, EventArgs args)
+        {
+            IPlugin plugin = plugins[((ToolStripMenuItem)sender).Text];
+            if (this.ActiveMdiChild != null)
+            {
+                var d = this.ActiveMdiChild as DocumentForm;
+                plugin.Transform((Bitmap)d.picture.Image);
+                d.picture.Refresh();
+            }
+        }
+
     }
 }

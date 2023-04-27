@@ -65,6 +65,7 @@ namespace lab1Paint
             this.btnParams = new System.Windows.Forms.ToolStripButton();
             this.btnZoomMinus = new System.Windows.Forms.ToolStripButton();
             this.btnZoomPlus = new System.Windows.Forms.ToolStripButton();
+            this.фильтрыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -75,7 +76,8 @@ namespace lab1Paint
             this.файлToolStripMenuItem,
             this.рисунокToolStripMenuItem,
             this.окноToolStripMenuItem,
-            this.справкаToolStripMenuItem});
+            this.справкаToolStripMenuItem,
+            this.фильтрыToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.MdiWindowListItem = this.окноToolStripMenuItem;
             this.menuStrip1.Name = "menuStrip1";
@@ -269,7 +271,7 @@ namespace lab1Paint
             this.красныйToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
             this.красныйToolStripMenuItem.Image = global::lab1Paint.Properties.Resources.red;
             this.красныйToolStripMenuItem.Name = "красныйToolStripMenuItem";
-            this.красныйToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.красныйToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.красныйToolStripMenuItem.Text = "Красный";
             this.красныйToolStripMenuItem.Click += new System.EventHandler(this.красныйToolStripMenuItem_Click);
             // 
@@ -277,7 +279,7 @@ namespace lab1Paint
             // 
             this.зеленыйToolStripMenuItem.Image = global::lab1Paint.Properties.Resources.green;
             this.зеленыйToolStripMenuItem.Name = "зеленыйToolStripMenuItem";
-            this.зеленыйToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.зеленыйToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.зеленыйToolStripMenuItem.Text = "Зеленый";
             this.зеленыйToolStripMenuItem.Click += new System.EventHandler(this.зеленыйToolStripMenuItem_Click);
             // 
@@ -285,7 +287,7 @@ namespace lab1Paint
             // 
             this.синийToolStripMenuItem.Image = global::lab1Paint.Properties.Resources.blue;
             this.синийToolStripMenuItem.Name = "синийToolStripMenuItem";
-            this.синийToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.синийToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.синийToolStripMenuItem.Text = "Синий";
             this.синийToolStripMenuItem.Click += new System.EventHandler(this.синийToolStripMenuItem_Click);
             // 
@@ -293,7 +295,7 @@ namespace lab1Paint
             // 
             this.другойToolStripMenuItem.Image = global::lab1Paint.Properties.Resources.icons8_пипетка_40;
             this.другойToolStripMenuItem.Name = "другойToolStripMenuItem";
-            this.другойToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.другойToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.другойToolStripMenuItem.Text = "Другой...";
             this.другойToolStripMenuItem.Click += new System.EventHandler(this.другойToolStripMenuItem_Click);
             // 
@@ -392,6 +394,12 @@ namespace lab1Paint
             this.btnZoomPlus.Text = "Масштаб++";
             this.btnZoomPlus.Click += new System.EventHandler(this.btnZoomPlus_Click);
             // 
+            // фильтрыToolStripMenuItem
+            // 
+            this.фильтрыToolStripMenuItem.Name = "фильтрыToolStripMenuItem";
+            this.фильтрыToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.фильтрыToolStripMenuItem.Text = "Фильтры";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -448,6 +456,7 @@ namespace lab1Paint
         private System.Windows.Forms.ToolStripButton btnParams;
         private System.Windows.Forms.ToolStripButton btnZoomMinus;
         private System.Windows.Forms.ToolStripButton btnZoomPlus;
+        private System.Windows.Forms.ToolStripMenuItem фильтрыToolStripMenuItem;
     }
 }
 
